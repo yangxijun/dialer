@@ -11,6 +11,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Build;
@@ -34,18 +36,19 @@ public class DialerActivity extends Activity implements OnClickListener {
 	
 	private ListView mListView;
 	private TextView mTextView;
-	private ImageView mNum1;
-	private ImageView mNum2;
-	private ImageView mNum3;
-	private ImageView mNum4;
-	private ImageView mNum5;
-	private ImageView mNum6;
-	private ImageView mNum7;
-	private ImageView mNum8;
-	private ImageView mNum9;
-	private ImageView mNum0;
-	private ImageView mNumStar;
-	private ImageView mPoundkey;
+	private LinearLayout mNum1;
+	private LinearLayout mNum2;
+	private LinearLayout mNum3;
+	private LinearLayout mNum4;
+	private LinearLayout mNum5;
+	private LinearLayout mNum6;
+	private LinearLayout mNum7;
+	private LinearLayout mNum8;
+	private LinearLayout mNum9;
+	private LinearLayout mNum0;
+	private LinearLayout mNumStar;
+	private LinearLayout mPoundkey;
+	
 	private ImageView mDialIcon;
 	private ImageView mDelIcon;
 
@@ -60,19 +63,22 @@ public class DialerActivity extends Activity implements OnClickListener {
 		
 		mTextView = (TextView)findViewById(R.id.dialertextview);
 
+		
 		//initiate the buttons
-		mNum1 = (ImageView)findViewById(R.id.num1);
-		mNum2 = (ImageView)findViewById(R.id.num2);
-		mNum3 = (ImageView)findViewById(R.id.num3);
-		mNum4 = (ImageView)findViewById(R.id.num4);
-		mNum5 = (ImageView)findViewById(R.id.num5);
-		mNum6 = (ImageView)findViewById(R.id.num6);
-		mNum7 = (ImageView)findViewById(R.id.num7);
-		mNum8 = (ImageView)findViewById(R.id.num8);
-		mNum9 = (ImageView)findViewById(R.id.num9);
-		mNum0 = (ImageView)findViewById(R.id.num0);
-		mNumStar = (ImageView)findViewById(R.id.numstar);
-		mPoundkey = (ImageView)findViewById(R.id.poundkey);
+		mNum1 = (LinearLayout)findViewById(R.id.num1);
+		mNum2 = (LinearLayout)findViewById(R.id.num2);
+		mNum3 = (LinearLayout)findViewById(R.id.num3);
+		mNum4 = (LinearLayout)findViewById(R.id.num4);
+		mNum5 = (LinearLayout)findViewById(R.id.num5);
+		mNum6 = (LinearLayout)findViewById(R.id.num6);
+		mNum7 = (LinearLayout)findViewById(R.id.num7);
+		mNum8 = (LinearLayout)findViewById(R.id.num8);
+		mNum9 = (LinearLayout)findViewById(R.id.num9);
+		mNum0 = (LinearLayout)findViewById(R.id.num0);
+		mNumStar = (LinearLayout)findViewById(R.id.numstar);
+		mPoundkey = (LinearLayout)findViewById(R.id.poundkey);
+		
+		
 		mDialIcon = (ImageView)findViewById(R.id.dialicon);
 		mDelIcon =(ImageView)findViewById(R.id.delicon);
 		
@@ -90,7 +96,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 		mPoundkey.setOnClickListener(this);
 		mDialIcon.setOnClickListener(this);
 		mDelIcon.setOnClickListener(this);	
-		
+
 		
 		mAdapter = new MyAdapter(getApplicationContext());
 		mListView.setAdapter(mAdapter);
@@ -150,11 +156,6 @@ public class DialerActivity extends Activity implements OnClickListener {
 		
 	}
 
-
-	/**
-	 * 拨打电话号码
-	 * @param phoneNumber 输入的电话号码
-	 */
 
 	private void dialer(String phoneNumber) {
 		

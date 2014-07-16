@@ -17,9 +17,10 @@
             android:src="@drawable/dialicon"/>
         
         <TextView
+            android:layout_marginTop="10dp"
             android:id="@+id/dialertextview"
             android:ellipsize="marquee"
-            android:textSize="40dp"
+            android:textSize="20dp"
             android:layout_width="50dp"
             android:layout_height="fill_parent"
             android:layout_weight="10"
@@ -38,104 +39,228 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/num1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num1"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num1" />
+"
+        </LinearLayout>
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/num2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num2"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num2" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="ABC"/>
+        </LinearLayout>
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/num3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num3"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num3" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="DEF"/>
+        </LinearLayout>
         
     </TableRow>
     <TableRow 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/num4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num4"/>
-        
-        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num4" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="GHI"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/num5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num5"/>
-        
-        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num5" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="JKL"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/num6"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num6"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num6" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="MNO"/>
+        </LinearLayout>
         
     </TableRow>
     <TableRow 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/num7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num7"/>
-        
-        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num7" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="PQRS"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/num8"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num8"/>
-        
-        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num8" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="TUV"/>
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/num9"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num9"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num9" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="WXYZ"/>
+        </LinearLayout>
         
     </TableRow>
     <TableRow 
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/numstar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/numstar"/>
-        
-        <ImageView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/numstar" />
+
+        </LinearLayout>
+        <LinearLayout
             android:id="@+id/num0"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/num0"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+                
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num0" />
+            <TextView 
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                android:text="+"/>
+        </LinearLayout>
         
-        <ImageView 
+        <LinearLayout
             android:id="@+id/poundkey"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" 
-            android:src="@drawable/poundkey"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageView
+          
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/poundkey" />
+            
+        </LinearLayout>
         
     </TableRow>
     
