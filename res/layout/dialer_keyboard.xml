@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/dial_panel_back">
+    
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView 
+            android:id="@+id/dialicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/dialicon"/>
+        
+        <TextView
+            android:id="@+id/dialertextview"
+            android:ellipsize="marquee"
+            android:textSize="40dp"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="10"
+            android:singleLine="true"/>
+        
+        <ImageView
+            android:id="@+id/delicon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/delicon"/>
+        
+    </TableRow>
+    
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView 
+            android:id="@+id/num1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num1"/>
+        
+        <ImageView 
+            android:id="@+id/num2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num2"/>
+        
+        <ImageView 
+            android:id="@+id/num3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num3"/>
+        
+    </TableRow>
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView 
+            android:id="@+id/num4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num4"/>
+        
+        <ImageView 
+            android:id="@+id/num5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num5"/>
+        
+        <ImageView 
+            android:id="@+id/num6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num6"/>
+        
+    </TableRow>
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView 
+            android:id="@+id/num7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num7"/>
+        
+        <ImageView 
+            android:id="@+id/num8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num8"/>
+        
+        <ImageView 
+            android:id="@+id/num9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num9"/>
+        
+    </TableRow>
+    <TableRow 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <ImageView 
+            android:id="@+id/numstar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/numstar"/>
+        
+        <ImageView 
+            android:id="@+id/num0"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/num0"/>
+        
+        <ImageView 
+            android:id="@+id/poundkey"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" 
+            android:src="@drawable/poundkey"/>
+        
+    </TableRow>
+    
+
+</TableLayout>
