@@ -48,8 +48,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 	private LinearLayout mNum0;
 	private LinearLayout mNumStar;
 	private LinearLayout mPoundkey;
-	
-	private ImageView mDialIcon;
+	private LinearLayout mDialIcon;
 	private ImageView mDelIcon;
 
 	MyAdapter mAdapter;
@@ -77,9 +76,8 @@ public class DialerActivity extends Activity implements OnClickListener {
 		mNum0 = (LinearLayout)findViewById(R.id.num0);
 		mNumStar = (LinearLayout)findViewById(R.id.numstar);
 		mPoundkey = (LinearLayout)findViewById(R.id.poundkey);
+		mDialIcon = (LinearLayout)findViewById(R.id.dialicon);
 		
-		
-		mDialIcon = (ImageView)findViewById(R.id.dialicon);
 		mDelIcon =(ImageView)findViewById(R.id.delicon);
 		
 		mNum1.setOnClickListener(this);

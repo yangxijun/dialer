@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dial_panel_back"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/dialicon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+             >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/dialicon" />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:id="@+id/dialertextview"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:singleLine="true"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/delicon"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/delicon" />
+    </LinearLayout>
+
+    <!-- row rim -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/num1"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num1" />
+        </LinearLayout>
+
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num2"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="ABC"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num3"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num3" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="DEF"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- row rim -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/num4"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num4" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="GHI"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num5"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="JKL"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num6"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="MNO"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- row rim -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/num7"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num7" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="PQRS"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num8"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num8" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="TUV"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num9"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num9" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="WXYZ"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- row rim -->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/numstar"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/numstar" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/num0"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/num0" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:text="+"
+                android:textColor="#B7B7B7"
+                android:textSize="15sp" />
+        </LinearLayout>
+        <!-- col rim -->
+>
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:paddingRight="1dp" />
+
+        <LinearLayout
+            android:id="@+id/poundkey"
+            android:background="@drawable/clickeffect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/poundkey" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
