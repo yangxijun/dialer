@@ -1,57 +1,33 @@
 package young.exercise.dialer;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.provider.CallLog;
+import android.provider.CallLog.Calls;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.os.Build;
 
 public class DialerActivity extends Activity implements OnClickListener {
 
-	private static final String FILE_NAME = "dialer.txt";
 	
 	private ListView mListView;
 	private TextView mTextView;
-	private LinearLayout mNum1;
-	private LinearLayout mNum2;
-	private LinearLayout mNum3;
-	private LinearLayout mNum4;
-	private LinearLayout mNum5;
-	private LinearLayout mNum6;
-	private LinearLayout mNum7;
-	private LinearLayout mNum8;
-	private LinearLayout mNum9;
-	private LinearLayout mNum0;
-	private LinearLayout mNumStar;
-	private LinearLayout mPoundkey;
-	private LinearLayout mDialIcon;
-	private ImageView mDelIcon;
 
-	MyAdapter mAdapter;
+	private MyAdapter mAdapter;
+	private List<CallRecord> list;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,41 +40,42 @@ public class DialerActivity extends Activity implements OnClickListener {
 
 		
 		//initiate the buttons
-		mNum1 = (LinearLayout)findViewById(R.id.num1);
-		mNum2 = (LinearLayout)findViewById(R.id.num2);
-		mNum3 = (LinearLayout)findViewById(R.id.num3);
-		mNum4 = (LinearLayout)findViewById(R.id.num4);
-		mNum5 = (LinearLayout)findViewById(R.id.num5);
-		mNum6 = (LinearLayout)findViewById(R.id.num6);
-		mNum7 = (LinearLayout)findViewById(R.id.num7);
-		mNum8 = (LinearLayout)findViewById(R.id.num8);
-		mNum9 = (LinearLayout)findViewById(R.id.num9);
-		mNum0 = (LinearLayout)findViewById(R.id.num0);
-		mNumStar = (LinearLayout)findViewById(R.id.numstar);
-		mPoundkey = (LinearLayout)findViewById(R.id.poundkey);
-		mDialIcon = (LinearLayout)findViewById(R.id.dialicon);
-		
-		mDelIcon =(ImageView)findViewById(R.id.delicon);
-		
-		mNum1.setOnClickListener(this);
-		mNum2.setOnClickListener(this);
-		mNum3.setOnClickListener(this);
-		mNum4.setOnClickListener(this);
-		mNum5.setOnClickListener(this);
-		mNum6.setOnClickListener(this);
-		mNum7.setOnClickListener(this);
-		mNum8.setOnClickListener(this);
-		mNum9.setOnClickListener(this);
-		mNum0.setOnClickListener(this);
-		mNumStar.setOnClickListener(this);
-		mPoundkey.setOnClickListener(this);
-		mDialIcon.setOnClickListener(this);
-		mDelIcon.setOnClickListener(this);	
+		findViewById(R.id.num1).setOnClickListener(this);
+		findViewById(R.id.num2).setOnClickListener(this);
+		findViewById(R.id.num3).setOnClickListener(this);
+		findViewById(R.id.num4).setOnClickListener(this);
+		findViewById(R.id.num5).setOnClickListener(this);
+		findViewById(R.id.num6).setOnClickListener(this);
+		findViewById(R.id.num7).setOnClickListener(this);
+		findViewById(R.id.num8).setOnClickListener(this);
+		findViewById(R.id.num9).setOnClickListener(this);
+		findViewById(R.id.num0).setOnClickListener(this);
+		findViewById(R.id.numstar).setOnClickListener(this);
+		findViewById(R.id.poundkey).setOnClickListener(this);
+		findViewById(R.id.delicon).setOnClickListener(this);
+		findViewById(R.id.dialicon).setOnClickListener(this);
 
+		list = queryCallRecords();
 		
-		mAdapter = new MyAdapter(getApplicationContext());
+		mAdapter = new MyAdapter(getApplicationContext(), list);
 		mListView.setAdapter(mAdapter);
 		
+		// TODO - try to set the keyboard invisiable
+		mListView.setOnScrollListener(new OnScrollListener() {
+			
+			@Override
+			public void onScrollStateChanged(AbsListView view, int scrollState) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onScroll(AbsListView view, int firstVisibleItem,
+					int visibleItemCount, int totalItemCount) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 
@@ -108,40 +85,18 @@ public class DialerActivity extends Activity implements OnClickListener {
 		
 		switch (v.getId()) {
 		case R.id.num1:
-			mTextView.setText(mTextView.getText()+"1");
-			break;
 		case R.id.num2:
-			mTextView.setText(mTextView.getText()+"2");
-			break;
 		case R.id.num3:
-			mTextView.setText(mTextView.getText()+"3");
-			break;
 		case R.id.num4:
-			mTextView.setText(mTextView.getText()+"4");
-			break;
 		case R.id.num5:
-			mTextView.setText(mTextView.getText()+"5");
-			break;
 		case R.id.num6:
-			mTextView.setText(mTextView.getText()+"6");
-			break;
 		case R.id.num7:
-			mTextView.setText(mTextView.getText()+"7");
-			break;
 		case R.id.num8:
-			mTextView.setText(mTextView.getText()+"8");
-			break;
 		case R.id.num9:
-			mTextView.setText(mTextView.getText()+"9");
-			break;
 		case R.id.num0:
-			mTextView.setText(mTextView.getText()+"0");
-			break;
 		case R.id.numstar:
-			mTextView.setText(mTextView.getText()+"*");
-			break;
 		case R.id.poundkey:
-			mTextView.setText(mTextView.getText()+"#");
+			mTextView.setText(mTextView.getText()+ (String)v.getTag());
 			break;
 		case R.id.delicon:
 			delete();
@@ -156,16 +111,67 @@ public class DialerActivity extends Activity implements OnClickListener {
 
 
 	private void dialer(String phoneNumber) {
-		
+
 		if (phoneNumber.length() != 0) {
 			Uri callUri = Uri.parse("tel:" + phoneNumber);
 			Intent intent = new Intent(Intent.ACTION_CALL, callUri);
 			startActivity(intent);
-			updateRecord(phoneNumber);
+			// updateRecord(phoneNumber);
+			list = queryCallRecords();
+
+			mAdapter = new MyAdapter(getApplicationContext(), list);
+			mListView.setAdapter(mAdapter);
 		}
 	}
+	
+	public List<CallRecord> queryCallRecords() {
+		List<CallRecord> callRecords = new ArrayList<CallRecord>();
+
+		String[] projection = new String[] { Calls._ID, Calls.NUMBER,
+				Calls.DATE, Calls.DURATION, Calls.NEW, Calls.TYPE };
+		Cursor cursor = getContentResolver().query(
+				CallLog.Calls.CONTENT_URI, projection, null, null,
+				CallLog.Calls.DEFAULT_SORT_ORDER);
+
+		try {
+			if (null != cursor && cursor.moveToFirst()) {
+				int idColumn = cursor.getColumnIndex(Calls._ID);
+				int numberColumn = cursor.getColumnIndex(Calls.NUMBER);
+				int dateColumn = cursor.getColumnIndex(Calls.DATE);
+				int durationColumn = cursor.getColumnIndex(Calls.DURATION);
+				int newColumn = cursor.getColumnIndex(Calls.NEW);
+				int typeColumn = cursor.getColumnIndex(Calls.TYPE);
+
+				while (cursor.moveToNext()) {
+					CallRecord callRecord = new CallRecord();
+					callRecord.setId(cursor.getInt(idColumn));
+					callRecord.setPhoneNumber(cursor.getString(numberColumn));
+					callRecord.setDate(cursor.getLong(dateColumn));
+					callRecord.setDuration(cursor.getInt(durationColumn));
+					
+					if (cursor.getInt(newColumn) == 0) {
+						callRecord.setNew(false);
+					} else {
+						callRecord.setNew(true);
+					}
+
+					callRecord.setType(cursor.getInt(typeColumn));
+					callRecords.add(callRecord);
+				}
+			}
+		} catch (Exception e) {
+		} finally {
+			if (null != cursor) {
+				cursor.close();
+			}
+		}
+		return callRecords;
+	}
+	
+	
 
 
+	/*
 	@SuppressLint("SimpleDateFormat")
 	private void updateRecord(String phoneNumber) {
 		
@@ -179,8 +185,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 		callRecord.setDate(date);
 		mAdapter.add(callRecord);
 
-	}
-
+	}*/
 
 
 	private void delete() {
@@ -191,6 +196,8 @@ public class DialerActivity extends Activity implements OnClickListener {
 			mTextView.setText(charSequence);
 		}
 	}
+	
+	/*
 	
 	@Override
 	public void onResume() {
@@ -263,6 +270,6 @@ public class DialerActivity extends Activity implements OnClickListener {
 		}
 	}
 	
-	
+	*/
 
 }

@@ -1,42 +1,73 @@
 package young.exercise.dialer;
 
-import java.util.Date;
-
 public class CallRecord {
-	private static final String ITEM_SEP = System.getProperty("line.separator");
+	private int id;
 	/**
 	 * 来去电号码
 	 */
-	private String mPhoneNumber;
+	private String phoneNumber;
 	/**
 	 * 通话时间
 	 */
-	private String mDate;
+	private long date;
 
-	CallRecord(String phoneNumber, String date){
-		super();
-		this.mPhoneNumber = phoneNumber;
-		this.mDate = date;
+	private boolean isNew;
+
+	/**
+	 * ͨ通话时长
+	 */
+	private int duration;
+
+	/**
+	 * ͨ记录类型，取值范围有三个Calls.INCOMING_TYPE，Calls.MISSED_TYPE，OUTGOING_TYPE
+	 */
+	private int type;
+
+	public int getId() {
+		return id;
 	}
-	CallRecord(){}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getPhoneNumber() {
-		return mPhoneNumber;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		this.mPhoneNumber = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
-	public String getDate() {
-		return mDate;
+	public long getDate() {
+		return date;
 	}
 
-	public void setDate(String date) {
-		this.mDate = date;
+	public void setDate(long date) {
+		this.date = date;
 	}
-	
-	public String toString() {
-		return mPhoneNumber + ITEM_SEP + mDate;
+
+	public boolean isNew() {
+		return isNew;
+	}
+
+	public void setNew(boolean isNew) {
+		this.isNew = isNew;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 }
-

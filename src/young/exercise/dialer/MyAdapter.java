@@ -1,5 +1,6 @@
 package young.exercise.dialer;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,10 @@ import java.util.zip.DataFormatException;
 import young.exercise.dialer.R.layout;
 import android.R.string;
 import android.content.Context;
+import android.database.Cursor;
+import android.provider.CallLog;
+import android.provider.CallLog.Calls;
+import android.provider.ContactsContract.Contacts.Data;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +24,12 @@ import android.widget.TextView;
 
 public class MyAdapter extends BaseAdapter{
 
-	private final List<CallRecord> mRecords = new ArrayList<CallRecord>();
+	private List<CallRecord> mRecords = new ArrayList<CallRecord>();
 	private final Context mContext;
 	
-	public MyAdapter(Context context){
-		mContext = context;
+	public MyAdapter(Context context, List<CallRecord> list){
+		this.mContext = context;
+		this.mRecords = list;
 	}
 	
 	public void add(CallRecord record){
@@ -48,19 +54,27 @@ public class MyAdapter extends BaseAdapter{
 
 		return pos;
 	}
-	private static class ViewHolder{
+	
+
+	private class ViewHolder{
 		TextView phoneNumberView;
 		TextView timeView;
 	}
+	
+	SimpleDateFormat dateformat = new SimpleDateFormat("y年MM月dd日 ");
+	SimpleDateFormat timeformat = new SimpleDateFormat("HH:mm:ss");
+	String curDate = dateformat.format(new java.util.Date());
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		
 		ViewHolder holder = null;
-		final CallRecord callRecord = (CallRecord)getItem(position);
-		LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		Date date = new Date(mRecords.get(position).getDate());
+		
+		String str = dateformat.format(date) + timeformat.format(date);
 		
 		if(convertView == null){
+			LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.record_item, null);
 			holder = new ViewHolder();
 			holder.phoneNumberView = (TextView)convertView.findViewById(R.id.phoneNumberView);
@@ -70,9 +84,15 @@ public class MyAdapter extends BaseAdapter{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		
-		holder.phoneNumberView.setText(callRecord.getPhoneNumber());
-		holder.timeView.setText(callRecord.getDate());
 		
+		holder.phoneNumberView.setText(mRecords.get(position).getPhoneNumber());
+
+		if (dateformat.format(date).equals(curDate))
+			holder.timeView.setText("Today " + timeformat.format(date));
+		else {
+			holder.timeView.setText(str);
+		}
+
 		return convertView;
 		
 		/*

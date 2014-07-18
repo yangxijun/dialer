@@ -26,7 +26,8 @@
             <TextView
                 android:layout_marginTop="20dp"
                 android:id="@+id/dialertextview"
-                android:layout_width="200dp"
+                android:ellipsize="middle"
+                android:layout_width="250dp"
                 android:layout_height="30dp"
                 android:singleLine="true"
                 android:textSize="18sp"/>
@@ -36,12 +37,14 @@
             android:id="@+id/delicon"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:background="@drawable/delicon" />
+            android:background="@drawable/clickeffect"
+            android:src="@drawable/delicon" />
+
     </LinearLayout>
 
     <!-- row rim -->
 
-    <TextView
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#000000" />
@@ -54,6 +57,7 @@
 
         <LinearLayout
             android:id="@+id/num1"
+            android:tag="1"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -78,6 +82,7 @@
             android:id="@+id/num2"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
+            android:tag="2"
             android:layout_height="match_parent"
             android:layout_weight="1" >
 
@@ -106,6 +111,7 @@
 
         <LinearLayout
             android:id="@+id/num3"
+            android:tag="3"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -141,6 +147,7 @@
 
         <LinearLayout
             android:id="@+id/num4"
+            android:tag="4"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -170,6 +177,7 @@
 
         <LinearLayout
             android:id="@+id/num5"
+            android:tag="5"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -199,6 +207,7 @@
 
         <LinearLayout
             android:id="@+id/num6"
+            android:tag="6"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -234,6 +243,7 @@
 
         <LinearLayout
             android:id="@+id/num7"
+            android:tag="7"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -263,6 +273,7 @@
 
         <LinearLayout
             android:id="@+id/num8"
+            android:tag="8"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -292,6 +303,7 @@
 
         <LinearLayout
             android:id="@+id/num9"
+            android:tag="9"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -326,6 +338,7 @@
 
         <LinearLayout
             android:id="@+id/numstar"
+            android:tag="*"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -348,6 +361,7 @@
 
         <LinearLayout
             android:id="@+id/num0"
+            android:tag="0"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -377,6 +391,7 @@
 
         <LinearLayout
             android:id="@+id/poundkey"
+            android:tag="#"
             android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
