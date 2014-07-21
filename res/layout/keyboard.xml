@@ -7,36 +7,36 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="50dp"
         android:orientation="horizontal" >
 
         <LinearLayout
             android:id="@+id/dialicon"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-             >
+            android:layout_height="match_parent" >
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
                 android:layout_margin="10dp"
                 android:background="@drawable/dialicon" />
 
             <TextView
-                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 android:id="@+id/dialertextview"
-                android:ellipsize="middle"
-                android:layout_width="250dp"
-                android:layout_height="30dp"
+                android:ellipsize="start"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textSize="18sp"/>
+                android:textSize="24sp"/>
         </LinearLayout>
 
         <ImageView
             android:id="@+id/delicon"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/clickeffect"
             android:src="@drawable/delicon" />
 
@@ -55,19 +55,17 @@
         android:layout_weight="1"
         android:orientation="horizontal" >
 
-        <LinearLayout
+       <TextView
             android:id="@+id/num1"
-            android:tag="1"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num1" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num1"
+            android:gravity="center_vertical"
+            android:tag="1"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
 
         <!-- col rim -->
 >
@@ -100,27 +98,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num3"
+            android:gravity="center_vertical"
             android:tag="3"
-            android:background="@drawable/clickeffect"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="DEF"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:text="DEF"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- row rim -->
@@ -136,27 +125,18 @@
         android:layout_weight="1"
         android:orientation="horizontal" >
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num4"
+            android:gravity="center_vertical"
             android:tag="4"
-            android:background="@drawable/clickeffect"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="GHI"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:text="GHI"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
         <!-- col rim -->
 >
 
@@ -166,27 +146,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num5"
-            android:tag="5"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num5" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="JKL"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num5"
+            android:gravity="center_vertical"
+            android:tag="5"
+            android:text="JKL"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
         <!-- col rim -->
 >
 
@@ -196,27 +167,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+       <TextView
             android:id="@+id/num6"
-            android:tag="6"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num6" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="MNO"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num6"
+            android:gravity="center_vertical"
+            android:tag="6"
+            android:text="MNO"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- row rim -->
@@ -232,27 +194,18 @@
         android:layout_weight="1"
         android:orientation="horizontal" >
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num7"
+            android:gravity="center_vertical"
             android:tag="7"
-            android:background="@drawable/clickeffect"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num7" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="PQRS"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:text="PQRS"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
         <!-- col rim -->
 >
 
@@ -262,27 +215,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num8"
-            android:tag="8"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num8" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="TUV"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num8"
+            android:gravity="center_vertical"
+            android:tag="8"
+            android:text="TUV"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
         <!-- col rim -->
 >
 
@@ -292,27 +236,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num9"
-            android:tag="9"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num9" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="WXYZ"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num9"
+            android:gravity="center_vertical"
+            android:tag="9"
+            android:text="WXYZ"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- row rim -->
@@ -325,22 +260,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal" >
 
-        <LinearLayout
+        <TextView
             android:id="@+id/numstar"
-            android:tag="*"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/numstar" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/numstar"
+            android:gravity="center_vertical"
+            android:tag="*"/>
         <!-- col rim -->
 >
 
@@ -350,27 +282,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/num0"
-            android:tag="0"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num0" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="+"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num0"
+            android:gravity="center_vertical"
+            android:tag="0"
+            android:text="+"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
         <!-- col rim -->
 >
 
@@ -380,20 +303,16 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+        <TextView
             android:id="@+id/poundkey"
-            android:tag="#"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/poundkey" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/poundkey"
+            android:gravity="center_vertical"
+            android:tag="#"/>
     </LinearLayout>
 
 </LinearLayout>
