@@ -78,27 +78,18 @@
             android:background="#000000"
             android:paddingRight="1dp" />
 
-        <LinearLayout
+       <TextView
             android:id="@+id/num2"
-            android:background="@drawable/clickeffect"
             android:layout_width="match_parent"
-            android:tag="2"
             android:layout_height="match_parent"
-            android:layout_weight="1" >
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/num2" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:text="ABC"
-                android:textColor="#B7B7B7"
-                android:textSize="15sp" />
-        </LinearLayout>
+            android:layout_weight="1"
+            android:background="@drawable/clickeffect"
+            android:drawableLeft="@drawable/num2"
+            android:gravity="center_vertical"
+            android:tag="2"
+            android:text="ABC"
+            android:textColor="#B7B7B7"
+            android:textSize="15sp" />
 
         <!-- col rim -->
 >

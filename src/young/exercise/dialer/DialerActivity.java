@@ -26,7 +26,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 	private TextView mTextView;
 
 	private MyAdapter mAdapter;
-	private List<CallRecord> list;
+	private List<CallRecord> mList;
 
 	
 	@Override
@@ -55,9 +55,9 @@ public class DialerActivity extends Activity implements OnClickListener {
 		findViewById(R.id.delicon).setOnClickListener(this);
 		findViewById(R.id.dialicon).setOnClickListener(this);
 
-		list = queryCallRecords();
+		mList = queryCallRecords();
 		
-		mAdapter = new MyAdapter(getApplicationContext(), list);
+		mAdapter = new MyAdapter(getApplicationContext(), mList);
 		mListView.setAdapter(mAdapter);
 		
 		// TODO - try to set the keyboard invisiable
@@ -117,9 +117,9 @@ public class DialerActivity extends Activity implements OnClickListener {
 			Intent intent = new Intent(Intent.ACTION_CALL, callUri);
 			startActivity(intent);
 			// updateRecord(phoneNumber);
-			list = queryCallRecords();
+			mList = queryCallRecords();
 
-			mAdapter = new MyAdapter(getApplicationContext(), list);
+			mAdapter = new MyAdapter(getApplicationContext(), mList);
 			mListView.setAdapter(mAdapter);
 		}
 	}
