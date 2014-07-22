@@ -65,15 +65,13 @@ public class DialerActivity extends Activity implements OnClickListener {
 			
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				// TODO Auto-generated method stub
-				
+
 			}
 			
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
-				// TODO Auto-generated method stub
-				
+
 			}
 		});
 	}
@@ -116,11 +114,14 @@ public class DialerActivity extends Activity implements OnClickListener {
 			Uri callUri = Uri.parse("tel:" + phoneNumber);
 			Intent intent = new Intent(Intent.ACTION_CALL, callUri);
 			startActivity(intent);
-			// updateRecord(phoneNumber);
+			
+			mTextView.setText("");
+			
 			mList = queryCallRecords();
-
 			mAdapter = new MyAdapter(getApplicationContext(), mList);
+			mAdapter.notifyDataSetChanged();
 			mListView.setAdapter(mAdapter);
+			
 		}
 	}
 	
@@ -142,7 +143,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 				int newColumn = cursor.getColumnIndex(Calls.NEW);
 				int typeColumn = cursor.getColumnIndex(Calls.TYPE);
 
-				while (cursor.moveToNext()) {
+				do {
 					CallRecord callRecord = new CallRecord();
 					callRecord.setId(cursor.getInt(idColumn));
 					callRecord.setPhoneNumber(cursor.getString(numberColumn));
@@ -157,7 +158,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 
 					callRecord.setType(cursor.getInt(typeColumn));
 					callRecords.add(callRecord);
-				}
+				}while (cursor.moveToNext());
 			}
 		} catch (Exception e) {
 		} finally {
@@ -168,25 +169,6 @@ public class DialerActivity extends Activity implements OnClickListener {
 		return callRecords;
 	}
 	
-	
-
-
-	/*
-	@SuppressLint("SimpleDateFormat")
-	private void updateRecord(String phoneNumber) {
-		
-		// clean the textview
-		mTextView.setText("");
-		
-		CallRecord callRecord = new CallRecord();
-		callRecord.setPhoneNumber(phoneNumber);
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd  HH:mm:ss");
-		String date = simpleDateFormat.format(new java.util.Date());
-		callRecord.setDate(date);
-		mAdapter.add(callRecord);
-
-	}*/
-
 
 	private void delete() {
 		
@@ -197,79 +179,4 @@ public class DialerActivity extends Activity implements OnClickListener {
 		}
 	}
 	
-	/*
-	
-	@Override
-	public void onResume() {
-		super.onResume();
-
-
-		if (mAdapter.getCount() == 0)
-			loadItems();
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-
-
-		saveItems();
-
-	}
-
-
-
-    private void loadItems() {
-    	BufferedReader reader = null;
-		try {
-			FileInputStream fis = openFileInput(FILE_NAME);
-			reader = new BufferedReader(new InputStreamReader(fis));
-
-			String phoneNumber = null;
-			String date = null;
-
-			while (null != (phoneNumber = reader.readLine())) {
-				date = reader.readLine();
-				mAdapter.add(new CallRecord(phoneNumber, date));
-			}
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (null != reader) {
-				try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		
-	}
-	private void saveItems() {
-		
-		PrintWriter writer = null;
-		try {
-			FileOutputStream fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
-			writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(
-					fos)));
-
-			for (int idx = 0; idx < mAdapter.getCount(); idx++) {
-
-				writer.println(mAdapter.getItem(idx));
-
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (null != writer) {
-				writer.close();
-			}
-		}
-	}
-	
-	*/
-
 }
