@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AbsListView;
@@ -17,29 +18,27 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class DialerActivity extends Activity implements OnClickListener {
 
-	
 	private ListView mListView;
 	private TextView mTextView;
 
 	private MyAdapter mAdapter;
 	private List<CallRecord> mList;
 
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		setContentView(R.layout.activity_dialer);
-		mListView = (ListView)findViewById(R.id.myListView);
-		
-		mTextView = (TextView)findViewById(R.id.dialertextview);
 
-		
-		//initiate the buttons
+		setContentView(R.layout.activity_dialer);
+		mListView = (ListView) findViewById(R.id.myListView);
+        final RelativeLayout keyboardLayout = (RelativeLayout)findViewById(R.id.keyboard);
+		mTextView = (TextView) findViewById(R.id.dialertextview);
+
+		// initiate the buttons
 		findViewById(R.id.num1).setOnClickListener(this);
 		findViewById(R.id.num2).setOnClickListener(this);
 		findViewById(R.id.num3).setOnClickListener(this);
@@ -55,19 +54,18 @@ public class DialerActivity extends Activity implements OnClickListener {
 		findViewById(R.id.delicon).setOnClickListener(this);
 		findViewById(R.id.dialicon).setOnClickListener(this);
 
-		mList = queryCallRecords();
-		
-		mAdapter = new MyAdapter(getApplicationContext(), mList);
-		mListView.setAdapter(mAdapter);
-		
 		// TODO - try to set the keyboard invisiable
 		mListView.setOnScrollListener(new OnScrollListener() {
-			
+
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
-
+				if (scrollState != 0) {
+					keyboardLayout.setVisibility(View.GONE);
+				}else {
+					keyboardLayout.setVisibility(View.VISIBLE);
+				}
 			}
-			
+
 			@Override
 			public void onScroll(AbsListView view, int firstVisibleItem,
 					int visibleItemCount, int totalItemCount) {
@@ -76,11 +74,17 @@ public class DialerActivity extends Activity implements OnClickListener {
 		});
 	}
 
-
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mList = queryCallRecords();
+		mAdapter = new MyAdapter(getApplicationContext(), mList);
+		mListView.setAdapter(mAdapter);
+	}
 
 	@Override
 	public void onClick(View v) {
-		
+
 		switch (v.getId()) {
 		case R.id.num1:
 		case R.id.num2:
@@ -94,19 +98,20 @@ public class DialerActivity extends Activity implements OnClickListener {
 		case R.id.num0:
 		case R.id.numstar:
 		case R.id.poundkey:
-			mTextView.setText(mTextView.getText()+ (String)v.getTag());
+			mTextView.setText(mTextView.getText() + (String) v.getTag());
 			break;
 		case R.id.delicon:
 			delete();
 			break;
 		case R.id.dialicon:
 			dialer(mTextView.getText().toString());
+			mAdapter.notifyDataSetChanged();
+			break;
 		default:
 			break;
 		}
-		
-	}
 
+	}
 
 	private void dialer(String phoneNumber) {
 
@@ -114,25 +119,18 @@ public class DialerActivity extends Activity implements OnClickListener {
 			Uri callUri = Uri.parse("tel:" + phoneNumber);
 			Intent intent = new Intent(Intent.ACTION_CALL, callUri);
 			startActivity(intent);
-			
+
 			mTextView.setText("");
-			
-			mList = queryCallRecords();
-			mAdapter = new MyAdapter(getApplicationContext(), mList);
-			mAdapter.notifyDataSetChanged();
-			mListView.setAdapter(mAdapter);
-			
 		}
 	}
-	
+
 	public List<CallRecord> queryCallRecords() {
 		List<CallRecord> callRecords = new ArrayList<CallRecord>();
 
 		String[] projection = new String[] { Calls._ID, Calls.NUMBER,
 				Calls.DATE, Calls.DURATION, Calls.NEW, Calls.TYPE };
-		Cursor cursor = getContentResolver().query(
-				CallLog.Calls.CONTENT_URI, projection, null, null,
-				CallLog.Calls.DEFAULT_SORT_ORDER);
+		Cursor cursor = getContentResolver().query(CallLog.Calls.CONTENT_URI,
+				projection, null, null, CallLog.Calls.DEFAULT_SORT_ORDER);
 
 		try {
 			if (null != cursor && cursor.moveToFirst()) {
@@ -149,7 +147,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 					callRecord.setPhoneNumber(cursor.getString(numberColumn));
 					callRecord.setDate(cursor.getLong(dateColumn));
 					callRecord.setDuration(cursor.getInt(durationColumn));
-					
+
 					if (cursor.getInt(newColumn) == 0) {
 						callRecord.setNew(false);
 					} else {
@@ -158,7 +156,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 
 					callRecord.setType(cursor.getInt(typeColumn));
 					callRecords.add(callRecord);
-				}while (cursor.moveToNext());
+				} while (cursor.moveToNext());
 			}
 		} catch (Exception e) {
 		} finally {
@@ -168,15 +166,15 @@ public class DialerActivity extends Activity implements OnClickListener {
 		}
 		return callRecords;
 	}
-	
 
 	private void delete() {
-		
-		if(mTextView.getText().length()!=0){
+
+		if (mTextView.getText().length() != 0) {
 			CharSequence charSequence = mTextView.getText();
-			charSequence = charSequence.subSequence(0, charSequence.length()-1);
+			charSequence = charSequence.subSequence(0,
+					charSequence.length() - 1);
 			mTextView.setText(charSequence);
 		}
 	}
-	
+
 }
