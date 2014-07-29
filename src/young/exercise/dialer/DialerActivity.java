@@ -27,7 +27,7 @@ public class DialerActivity extends Activity implements OnClickListener {
 	private TextView mTextView;
 
 	private MyAdapter mAdapter;
-	private List<CallRecord> mList;
+	private List<CallRecord> mList = new ArrayList<CallRecord>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +54,12 @@ public class DialerActivity extends Activity implements OnClickListener {
 		findViewById(R.id.delicon).setOnClickListener(this);
 		findViewById(R.id.dialicon).setOnClickListener(this);
 
-		// TODO - try to set the keyboard invisiable
+		// set the keyboard invisiable
 		mListView.setOnScrollListener(new OnScrollListener() {
 
 			@Override
 			public void onScrollStateChanged(AbsListView view, int scrollState) {
-				if (scrollState != 0) {
+				if (scrollState != SCROLL_STATE_IDLE) {
 					keyboardLayout.setVisibility(View.GONE);
 				}else {
 					keyboardLayout.setVisibility(View.VISIBLE);
@@ -72,14 +72,17 @@ public class DialerActivity extends Activity implements OnClickListener {
 
 			}
 		});
+		
+		mAdapter = new MyAdapter(getApplicationContext(), mList);
+		mListView.setAdapter(mAdapter);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 		mList = queryCallRecords();
-		mAdapter = new MyAdapter(getApplicationContext(), mList);
-		mListView.setAdapter(mAdapter);
+		mAdapter.setData(mList);
+		mAdapter.notifyDataSetChanged();
 	}
 
 	@Override
@@ -105,7 +108,6 @@ public class DialerActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.dialicon:
 			dialer(mTextView.getText().toString());
-			mAdapter.notifyDataSetChanged();
 			break;
 		default:
 			break;

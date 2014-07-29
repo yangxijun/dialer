@@ -32,8 +32,8 @@ public class MyAdapter extends BaseAdapter{
 		this.mRecords = list;
 	}
 	
-	public void add(CallRecord record){
-		mRecords.add(record);
+	public void setData(List<CallRecord> list){
+		mRecords = list;
 		notifyDataSetChanged();
 	}
 	
