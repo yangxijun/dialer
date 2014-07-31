@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
@@ -80,9 +81,24 @@ public class DialerActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		mList = queryCallRecords();
-		mAdapter.setData(mList);
-		mAdapter.notifyDataSetChanged();
+		new loadTask().execute(0);
+	}
+	
+	class loadTask extends AsyncTask<Integer, Integer, String>{
+
+		@Override
+		protected String doInBackground(Integer... params) {
+			mList = queryCallRecords();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			mAdapter.setData(mList);
+			mAdapter.notifyDataSetChanged();
+			super.onPostExecute(result);
+		}
+		
 	}
 
 	@Override
