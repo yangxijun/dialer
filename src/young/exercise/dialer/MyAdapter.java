@@ -21,7 +21,10 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+/**
+ * 
+ * @auther yangxijun
+ */ 
 public class MyAdapter extends BaseAdapter {
 
 	private List<CallRecord> mRecords = new ArrayList<CallRecord>();
