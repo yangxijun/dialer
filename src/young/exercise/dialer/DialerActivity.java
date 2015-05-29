@@ -21,7 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+// this comment is added by august
 public class DialerActivity extends Activity implements OnClickListener {
 
 	private ListView mListView;
